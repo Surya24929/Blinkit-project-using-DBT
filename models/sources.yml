@@ -1,0 +1,16 @@
+sources:
+  - name: sales
+    database: SALES
+    schema: RAW_DATA
+    tables:
+      - name: CUSTOMERS
+      - name: PRODUCTS
+      - name: ORDERS
+      - name: order_items
+
+      - name: Inventory
+      - name: customer_feedback
+      - name: MARKETING_DATA
+      - name: delivery_performance
+
+
