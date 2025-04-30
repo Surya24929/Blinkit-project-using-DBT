@@ -1,21 +1,9 @@
-{{
-    config(
-        materialized='table',
-        database = 'Blinkit',
-        schema = 'sliver'
-    )
-}}
+select c.customer_id , c.customer_name , c.registration_date , {{date_change('o.order_Date')}} as lastest_order_Date, c.CUSTOMER_SEGMENT , c.TOTAL_ORDERS , c.AVG_ORDER_VALUE
+ ,ORDER_TOTAL as total_spend 
+from {{ ref('stg_customer') }} as c  join (select customer_id ,max(order_Date) as order_Date ,sum(order_total)
+as order_total from {{ ref('stg_order') }} group by customer_id) as o on
+c.customer_id = o.customer_id
 
-SELECT 
-  c.customer_id, 
-  c.customer_name, 
-  o.order_id,
-  o.order_date,
-  o.order_total,
-  p.product_id,
-  (p.quantity * p.unit_price) AS total_price
-FROM {{ ref('stg_customer') }} c
-JOIN {{ ref('stg_order') }} o
-  ON c.customer_id = o.customer_id
-JOIN {{ ref('stg_order_items') }} p
-  ON o.order_id = p.order_id
+     
+       
+

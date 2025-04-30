@@ -43,8 +43,8 @@ models:
     stagging:
       +materialized: view
     intermedaite:
-      +materialized: table
-      transient: true
+      +materialized: ephemeral
+      
     data_mart:
       +materialized: table
       transient: false
