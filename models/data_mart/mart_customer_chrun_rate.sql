@@ -1,8 +1,9 @@
 {{
     config(
         materialized='table',
-        schema = 'Gold'
-        
+        schema = 'Gold',
+        query_tag = 'new',
+        pre_hook = "use warehouse dbt"
     )
 }}
 select customer_id , customer_name , case when datediff(day ,REGISTRATION_DATE ,LASTEST_ORDER_DATE) >90 then 'inactive' else 'active' end as 
