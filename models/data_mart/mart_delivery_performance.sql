@@ -20,10 +20,10 @@ select
     dp.customer_id,
     count(dp.order_id) as total_orders,
     sum(dp.is_late_delivery) as total_late_orders,
-    (sum(dp.is_late_delivery) * 100.0) / count(dp.order_id) as late_delivery_percentage,
-    (100 - (sum(dp.is_late_delivery) * 100.0) / count(dp.order_id)) as on_time_delivery_percentage,
+    round((sum(dp.is_late_delivery) * 100.0) / count(dp.order_id),2) as late_delivery_percentage,
+    round((100 - (sum(dp.is_late_delivery) * 100.0) / count(dp.order_id)),2) as on_time_delivery_percentage,
     
-    avg(ff.rating) as avg_satisfaction_score,
+    round(avg(ff.rating),2) as avg_satisfaction_score,
     avg(case when dp.is_late_delivery = 1 then ff.rating else null end) as avg_satisfaction_late_orders,
     avg(case when dp.is_late_delivery = 0 then ff.rating else null end) as avg_satisfaction_on_time_orders, feedback_category
 
