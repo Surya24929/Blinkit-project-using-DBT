@@ -14,10 +14,10 @@ with filtered_feedback as (
         feedback_category
     from {{ ref('stg_customer_feedback') }}
     where feedback_category = 'Delivery'
-)
+) , cte2 as (
 
 select
-    dp.customer_id,
+    dp.customer_id, 
     count(dp.order_id) as total_orders,
     sum(dp.is_late_delivery) as total_late_orders,
     round((sum(dp.is_late_delivery) * 100.0) / count(dp.order_id),2) as late_delivery_percentage,
@@ -31,4 +31,6 @@ from {{ ref('inter_delivery_stats') }} dp
 join filtered_feedback ff
     on dp.order_id = ff.order_id
 
-group by dp.customer_id ,feedback_category
+group by dp.customer_id ,feedback_category)
+select * , total_orders - total_late_orders as on_time_delivery
+from cte2
