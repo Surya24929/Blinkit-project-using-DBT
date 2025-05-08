@@ -2,7 +2,7 @@
 
 select
     o.order_id,
-    o.customer_id,
+    o.customer_id,o.DELIVERY_PARTNER_ID,
     o.order_date,
     d.PROMISED_TIME,
     d.ACTUAL_TIME,
