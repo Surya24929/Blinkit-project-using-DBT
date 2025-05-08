@@ -259,5 +259,12 @@ You now have a modular, testable, and documented data warehouse architecture wit
 
 LOOKER DASHBOARD LINK ;
 https://lookerstudio.google.com/reporting/aba94f1c-6659-47b1-9a03-164daf7e40bb
+**Sales Report**
+![Blinkit (3)-1](https://github.com/user-attachments/assets/5b53443d-9db4-461e-ab41-5f718b274ea3)
+**Marketing Data Report**
+![Blinkit (2)-1](https://github.com/user-attachments/assets/d4daf7cc-977c-42f1-ac0d-490d54971f8b)
+**Customer Feedback Report**
+![Blinkit (1)-1](https://github.com/user-attachments/assets/531db059-8c52-49bc-9abd-a5e47894881b)
+
 
 
