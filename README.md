@@ -118,10 +118,9 @@ Final, business-ready tables for dashboards and BI tools
 Optimized for fast querying
 
 
-Aligned to KPIs
+<img width="1136" alt="Screenshot 2025-05-10 at 11 51 13 PM" src="https://github.com/user-attachments/assets/c8c525c2-0804-47d6-ab7e-9ed62e94b047" />
 
-
-
+**Aligned to KPIs**
 
 mart_new_user_montly.sql
 
